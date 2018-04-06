@@ -4,7 +4,7 @@ import * as hierarchyResolver from './../sync/hierarchyResolver';
 
 describe('Suite of tests for the synchronizer function', () => {
     const state = {
-        token: 'abhy-12tt-jf78-ml23-jk34-1111'
+        token: 'abhy-12tt-jf78-ml23-jk34-1111',
     };
 
     beforeEach(() => {
@@ -41,8 +41,11 @@ describe('Suite of tests for the synchronizer function', () => {
         };
         Sync(action, state);
         expect(hierarchyResolver.default).toHaveBeenCalledTimes(action.sync.length);
-        expect(hierarchyResolver.default)
-            .toHaveBeenCalledWith(action.sync[0].name, action.sync[0].hierarchy, state);
+        expect(hierarchyResolver.default).toHaveBeenCalledWith(
+            action.sync[0].name,
+            action.sync[0].hierarchy,
+            state
+        );
     });
 
     test('should call dataSaver with none place parameter if where is not defined', () => {
@@ -58,8 +61,10 @@ describe('Suite of tests for the synchronizer function', () => {
         };
         Sync(action, state);
         expect(dataSaver.default).toHaveBeenCalledTimes(1);
-        expect(dataSaver.default)
-            .toHaveBeenCalledWith({key: action.sync[0].key, value: state.token});
+        expect(dataSaver.default).toHaveBeenCalledWith({
+            key: action.sync[0].key,
+            value: state.token,
+        });
     });
 
     test('should call dataSaver with place parameter if where is of type string', () => {
@@ -76,8 +81,10 @@ describe('Suite of tests for the synchronizer function', () => {
         };
         Sync(action, state);
         expect(dataSaver.default).toHaveBeenCalledTimes(1);
-        expect(dataSaver.default)
-            .toHaveBeenCalledWith({key: action.sync[0].key, value: state.token}, action.sync[0].where);
+        expect(dataSaver.default).toHaveBeenCalledWith(
+            { key: action.sync[0].key, value: state.token },
+            action.sync[0].where
+        );
     });
 
     test('should call dataSaver with place parameter as many times as items has where is of type array', () => {
@@ -94,9 +101,13 @@ describe('Suite of tests for the synchronizer function', () => {
         };
         Sync(action, state);
         expect(dataSaver.default).toHaveBeenCalledTimes(action.sync[0].where.length);
-        expect(dataSaver.default)
-            .toHaveBeenCalledWith({key: action.sync[0].key, value: state.token}, action.sync[0].where[0]);
-        expect(dataSaver.default)
-            .toHaveBeenCalledWith({key: action.sync[0].key, value: state.token}, action.sync[0].where[1]);
+        expect(dataSaver.default).toHaveBeenCalledWith(
+            { key: action.sync[0].key, value: state.token },
+            action.sync[0].where[0]
+        );
+        expect(dataSaver.default).toHaveBeenCalledWith(
+            { key: action.sync[0].key, value: state.token },
+            action.sync[0].where[1]
+        );
     });
 });
