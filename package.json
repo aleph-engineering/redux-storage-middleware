@@ -11,6 +11,12 @@
     "publish": "--access public",
     "prepublish": "npm run clean && npm run test && npm run build"
   },
+  "keywords": [
+    "redux",
+    "storage",
+    "middleware",
+    "redux-middleware"
+  ],
   "pre-commit": [
     "test"
   ],
