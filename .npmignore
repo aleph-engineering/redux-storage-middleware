@@ -2,5 +2,6 @@
 .idea
 coverage
 node_modules
+jest.config.json
 yarn.lock
 yarn-error.log
