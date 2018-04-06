@@ -5,8 +5,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'reduxStorageSync.js',
-        library: 'reduxStorageSync',
+        filename: 'reduxStorageMiddleware.js',
+        library: 'reduxStorageMiddleware',
         libraryTarget: 'umd',
     },
 };

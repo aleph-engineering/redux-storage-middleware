@@ -2,7 +2,7 @@
   "name": "@cuban-engineer/redux-storage-sync",
   "version": "0.1.0",
   "description": "Redux middleware for synchronizing store state with browser storages ",
-  "main": "./dist/reduxStorageSync.js",
+  "main": "./dist/reduxStorageMiddleware.js",
   "scripts": {
     "clean": "rimraf dist",
     "test": "jest --config=jest.config.json",
