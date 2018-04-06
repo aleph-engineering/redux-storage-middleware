@@ -6,6 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'reduxStorageSync.js',
+        library: 'reduxStorageSync',
         libraryTarget: 'umd',
     },
 };
