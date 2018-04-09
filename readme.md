@@ -73,4 +73,8 @@ export const changeUserToken = userToken =>
             hierarchy: ['user'],
         },
     ]
-``` 
+```
+
+## License
+@cuban-engineer/redux-storage-middleware is [MIT-licensed](https://github.com/aleph-engineering/redux-storage-middleware/blob/master/LICENSE).
+
