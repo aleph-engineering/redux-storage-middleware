@@ -2,39 +2,39 @@ import hierarchyResolver from './hierarchyResolver';
 
 describe('Suite of tests for the hierarchy resolver util', () => {
     const root = 'children';
-    const hierarchyString = 'dad';
-    const hierarchyArray = ['grandpa', 'dad'];
-    const stateDefault = {
-        children: 'florian',
-    };
-    const stateSimple = {
-        dad: {
-            children: 'florian',
-        },
-    };
-    const stateComplex = {
-        grandpa: {
-            dad: {
-                children: 'tino',
-            },
-        },
-    };
 
     test('should return valid value with hierarchy as string provided', () => {
-        expect(hierarchyResolver(root, hierarchyString, stateSimple)).toBe(
-            stateSimple.dad.children,
+        const hierarchyString = 'dad';
+        const state = {
+            dad: {
+                children: 'florian',
+            },
+        };
+        expect(hierarchyResolver(root, hierarchyString, state)).toBe(
+            state.dad.children,
         );
     });
 
     test('should return valid value with hierarchy as array provided', () => {
-        expect(hierarchyResolver(root, hierarchyArray, stateComplex)).toBe(
-            stateComplex.grandpa.dad.children,
+        const hierarchyArray = ['grandpa', 'dad'];
+        const state = {
+            grandpa: {
+                dad: {
+                    children: 'tino',
+                },
+            },
+        };
+        expect(hierarchyResolver(root, hierarchyArray, state)).toBe(
+            state.grandpa.dad.children,
         );
     });
 
     test('should return valid default value is hierarchy is not a string or array', () => {
-        expect(hierarchyResolver(root, null, stateDefault)).toBe(
-            stateDefault.children,
+        const state = {
+            children: 'florian',
+        };
+        expect(hierarchyResolver(root, null, state)).toBe(
+            state.children,
         );
     });
 });
