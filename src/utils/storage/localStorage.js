@@ -1,12 +1,14 @@
+import isBrowserEnv from './../environment';
+
 export const save = (key, value) => {
-    if (typeof document !== 'undefined') {
+    if (isBrowserEnv()) {
         const json = JSON.stringify(value);
         localStorage.setItem(key, json);
     }
 };
 
 export const get = key => {
-    if (typeof document !== 'undefined') {
+    if (isBrowserEnv()) {
         const json = localStorage.getItem(key);
         return JSON.parse(json);
     }
@@ -14,7 +16,7 @@ export const get = key => {
 };
 
 export const remove = key => {
-    if (typeof document !== 'undefined') {
+    if (isBrowserEnv()) {
         localStorage.removeItem(key);
     }
 };
