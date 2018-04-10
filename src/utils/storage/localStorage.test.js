@@ -32,4 +32,9 @@ describe('Suite of tests for the local storage util', () => {
         expect(spyBrowser).toHaveBeenCalledTimes(1);
         expect(spy).toHaveBeenCalledWith(storageKey);
     });
+
+    test('get should return undefined if not in browser environment', () => {
+        const spy = jest.spyOn(environment, 'default').mockReturnValue(false);
+        expect(storage.get(storageKey)).toBe(undefined);
+    });
 });
