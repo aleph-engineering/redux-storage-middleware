@@ -1,12 +1,13 @@
 var path = require('path');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'reduxStorageMiddleware.js',
         library: 'reduxStorageMiddleware',
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs2',
+        libraryExport: 'default',
     },
 };
