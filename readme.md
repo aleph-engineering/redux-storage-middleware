@@ -75,6 +75,9 @@ export const changeUserToken = userToken =>
     ]
 ```
 
+## What's next?
+Check our `TODO` list [here](https://github.com/aleph-engineering/redux-storage-middleware/blob/master/TODO.md).
+
 ## License
 @cuban-engineer/redux-storage-middleware is [MIT-licensed](https://github.com/aleph-engineering/redux-storage-middleware/blob/master/LICENSE).
 
